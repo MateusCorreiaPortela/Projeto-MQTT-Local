@@ -33,8 +33,8 @@ Este processo consome a mensagem da fila do RabbitMQ e a salva no MongoDB. Coman
 No quarto terminal execute o comando para acessar o shell do mongoDB: mongosh
 
 Dentro do shell do MongoDB, digite os seguintes comandos:
-show databases        // Para verfiar os bancos disponíveis
-use banco             // Acessa o banco que criamos chamado "banco"
-show collections      // Lista as coleções
-db.mensagens.find()   // Exibe as mensagens salvas!
+show databases         Para verfiar os bancos disponíveis
+use banco              Acessa o banco que criamos chamado "banco"
+show collections       Lista as coleções
+db.mensagens.find()    Exibe as mensagens salvas!
 

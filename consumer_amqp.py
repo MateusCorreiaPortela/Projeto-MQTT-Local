@@ -19,7 +19,13 @@ colecao = db["mensagens"]
 def callback(ch,method,properties,body):
     try:
         mensagem = json.loads(body)
-        colecao.insert_one(mensagem)
+        message_device_english = {
+            "ID": mensagem["ID"],
+            "date": mensagem["data"],
+            "clock": mensagem["relogio"],
+            "instantaneous_flow": mensagem["vazao_instantanea"]
+        }
+        colecao.insert_one(message_device_english)
         connection.close
 
     except:
@@ -27,6 +33,8 @@ def callback(ch,method,properties,body):
     
 
 channel.basic_consume(queue='fila1', on_message_callback=callback, auto_ack=True)
+
+
 
 try:
     channel.start_consuming()
